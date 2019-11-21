@@ -103,7 +103,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E47ACD312386C62C006A3D36 /* classes */ = {
+		E47ACD312386C62C006A3D36 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				E47ACD332386C62C006A3D36 /* Common */,
@@ -111,7 +111,7 @@
 				E47ACD342386C62C006A3D36 /* LearnPlan */,
 				E47ACD352386C62C006A3D36 /* Me */,
 			);
-			path = classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		E47ACD322386C62C006A3D36 /* Home */ = {
@@ -180,7 +180,7 @@
 		E4920F022386C17700D4F0C0 /* feel_english */ = {
 			isa = PBXGroup;
 			children = (
-				E47ACD312386C62C006A3D36 /* classes */,
+				E47ACD312386C62C006A3D36 /* Classes */,
 				E4920F032386C17700D4F0C0 /* AppDelegate.swift */,
 				E4920F0C2386C17900D4F0C0 /* Assets.xcassets */,
 				E4920F112386C17900D4F0C0 /* Info.plist */,
