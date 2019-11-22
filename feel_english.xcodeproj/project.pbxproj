@@ -12,6 +12,7 @@
 		E40B4231238774A700484F68 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B4230238774A700484F68 /* VideoPlayerView.swift */; };
 		E4451A41238781CB0072856D /* VideoCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A40238781CB0072856D /* VideoCacheManager.swift */; };
 		E4451A44238799EE0072856D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A43238799EE0072856D /* StringExtension.swift */; };
+		E4451A462387B0640072856D /* AVPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A452387B0640072856D /* AVPlayerManager.swift */; };
 		E47ACD3A2386C745006A3D36 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD392386C745006A3D36 /* BaseTabBarController.swift */; };
 		E47ACD3C2386C75C006A3D36 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD3B2386C75C006A3D36 /* BaseNavigationController.swift */; };
 		E47ACD3E2386C833006A3D36 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD3D2386C833006A3D36 /* HomeViewController.swift */; };
@@ -54,6 +55,7 @@
 		E40B4230238774A700484F68 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		E4451A40238781CB0072856D /* VideoCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCacheManager.swift; sourceTree = "<group>"; };
 		E4451A43238799EE0072856D /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		E4451A452387B0640072856D /* AVPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerManager.swift; sourceTree = "<group>"; };
 		E47ACD392386C745006A3D36 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		E47ACD3B2386C75C006A3D36 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		E47ACD3D2386C833006A3D36 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				E40B4230238774A700484F68 /* VideoPlayerView.swift */,
+				E4451A452387B0640072856D /* AVPlayerManager.swift */,
 				E4451A40238781CB0072856D /* VideoCacheManager.swift */,
 			);
 			path = VideoPlayer;
@@ -474,6 +477,7 @@
 				E4920F042386C17700D4F0C0 /* AppDelegate.swift in Sources */,
 				E4451A44238799EE0072856D /* StringExtension.swift in Sources */,
 				E47ACD3C2386C75C006A3D36 /* BaseNavigationController.swift in Sources */,
+				E4451A462387B0640072856D /* AVPlayerManager.swift in Sources */,
 				E47ACD3E2386C833006A3D36 /* HomeViewController.swift in Sources */,
 				E40B4231238774A700484F68 /* VideoPlayerView.swift in Sources */,
 			);
