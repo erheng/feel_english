@@ -14,6 +14,7 @@
 		E47ACD3E2386C833006A3D36 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD3D2386C833006A3D36 /* HomeViewController.swift */; };
 		E47ACD402386C851006A3D36 /* LearnPleanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD3F2386C851006A3D36 /* LearnPleanViewController.swift */; };
 		E47ACD422386C86B006A3D36 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD412386C86B006A3D36 /* MeViewController.swift */; };
+		E47ACD442386D280006A3D36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47ACD432386D280006A3D36 /* LaunchScreen.storyboard */; };
 		E4920F042386C17700D4F0C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4920F032386C17700D4F0C0 /* AppDelegate.swift */; };
 		E4920F0D2386C17900D4F0C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4920F0C2386C17900D4F0C0 /* Assets.xcassets */; };
 		E4920F1B2386C17900D4F0C0 /* feel_englishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4920F1A2386C17900D4F0C0 /* feel_englishTests.swift */; };
@@ -52,6 +53,7 @@
 		E47ACD3D2386C833006A3D36 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E47ACD3F2386C851006A3D36 /* LearnPleanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnPleanViewController.swift; sourceTree = "<group>"; };
 		E47ACD412386C86B006A3D36 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		E47ACD432386D280006A3D36 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4920F002386C17700D4F0C0 /* feel_english.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = feel_english.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4920F032386C17700D4F0C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4920F0C2386C17900D4F0C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				E4920F032386C17700D4F0C0 /* AppDelegate.swift */,
 				E4920F0C2386C17900D4F0C0 /* Assets.xcassets */,
 				E4920F112386C17900D4F0C0 /* Info.plist */,
+				E47ACD432386D280006A3D36 /* LaunchScreen.storyboard */,
 			);
 			path = feel_english;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4920F0D2386C17900D4F0C0 /* Assets.xcassets in Resources */,
+				E47ACD442386D280006A3D36 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
