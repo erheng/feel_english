@@ -17,6 +17,7 @@ protocol AVPlayerUpdateDelegate: NSObjectProtocol
 {
     // MARK: 播放进度更新回调方法
     func onProgressUpdate(current: CGFloat, total: CGFloat)
+    
     // MARK: 播放状态更新回调方法
     func onPlayItemStatusUpdate(status: AVPlayerItem.Status)
 }
@@ -172,7 +173,8 @@ class VideoPlayerView: UIView
             self?.data = nil
             self?.response = nil
             
-            for loadingRequest in self?.pendingRequests ?? [] {
+            for loadingRequest in self?.pendingRequests ?? []
+            {
                 if !loadingRequest.isFinished
                 {
                     loadingRequest.finishLoading()
@@ -233,7 +235,7 @@ extension VideoPlayerView
         }
     }
     
-    // 定期观察视频的播放时间
+    // 监听视频播放进度
     private func addProgressObserver()
     {
         timeObserver = player?.addPeriodicTimeObserver(forInterval: CMTime(value: 1, timescale: 600), queue: DispatchQueue.main, using: {
