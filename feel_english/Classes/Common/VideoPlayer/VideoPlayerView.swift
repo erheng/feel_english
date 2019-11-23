@@ -61,8 +61,8 @@ class VideoPlayerView: UIView
     
     init()
     {
-        super.init(frame: UIScreen.main.bounds)
-        initSubView()
+        super.init(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width - 50))
+        self.initSubView()
     }
     
     required init?(coder: NSCoder)
@@ -77,8 +77,7 @@ class VideoPlayerView: UIView
         playerLayer.videoGravity = .resizeAspect
         self.layer.addSublayer(self.playerLayer)
         
-        addProgressObserver()
-        
+        self.addProgressObserver()
         cancelLoadingQueue = DispatchQueue(label: "ai.deepfell")
     }
     
@@ -88,6 +87,7 @@ class VideoPlayerView: UIView
         super.layoutSubviews()
         CATransaction.begin()
         CATransaction.setDisableActions(true)
+        
         playerLayer.frame = self.layer.bounds
         CATransaction.commit()
     }
@@ -104,11 +104,12 @@ class VideoPlayerView: UIView
                 DispatchQueue.main.async {[weak self] in
                 if !hasCache
                 {
-//                    self?.sourceURL = self?.sourceURL?.absoluteString.urlScheme(scheme: "streaming")
+                    self?.sourceURL = self?.sourceURL?.absoluteString.urlScheme(scheme: "streaming")
+                    print("替换协议")
                 }
                 else
                 {
-//                    self?.sourceURL = URL(fileURLWithPath: data as? String ?? "")
+                    self?.sourceURL = URL(fileURLWithPath: data as? String ?? "")
                 }
                 if let url = self?.sourceURL
                 {
@@ -119,9 +120,11 @@ class VideoPlayerView: UIView
                         self?.playerItem = AVPlayerItem(asset: asset)
                         self?.playerItem?.addObserver(self!, forKeyPath: "status", options: [.initial, .new], context: nil)
                         self?.player = AVPlayer(playerItem: self?.playerItem)
-                        self?.playerLayer.player = self?.player
                         
-                        self?.changeLayerPositionAndSize()
+                        // AVPlayerItem 可以播放时 添加playerLayer
+                        print("视频状态OK 可以播放了")
+                        self?.playerLayer.player = self?.player
+
                         self?.player?.replaceCurrentItem(with: self?.playerItem)
                         self?.addProgressObserver()
                     }
@@ -146,7 +149,7 @@ class VideoPlayerView: UIView
         let videoHeight = ( UIScreen.main.bounds.width * 2 ) / (videoSize?.width ?? 0.0)  * (videoSize?.height ?? 1.0)
         if videoHeight < 500
         {
-            self.frame = CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: videoHeight)
+            
         }
     }
     
@@ -158,7 +161,7 @@ class VideoPlayerView: UIView
         CATransaction.commit()
         
         queryCacheOperation?.cancel()
-        removeObserver()
+        self.removeObserver()
         self.pause()
         
         player = nil
@@ -256,7 +259,10 @@ extension VideoPlayerView
             let total = CMTimeGetSeconds(self?.playerItem?.duration ?? CMTime())
             if total == current
             {
-                self?.replay()
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2)
+                {
+                    self?.replay()
+                }
             }
             self?.delegate?.onProgressUpdate(current: CGFloat(current), total: CGFloat(total))
         })
@@ -266,22 +272,148 @@ extension VideoPlayerView
     func removeObserver()
     {
         playerItem?.removeObserver(self, forKeyPath: "status")
-        if let observer = timeObserver
+        if let observer = self.timeObserver
         {
-            player?.removeTimeObserver(observer)
+            self.player?.removeTimeObserver(observer)
+            self.timeObserver = nil
         }
+        
     }
 }
 
 
-
+// MARK: - 自定义URLSession 下载
 extension VideoPlayerView: URLSessionTaskDelegate, URLSessionDataDelegate
 {
+    //网络资源下载请求获得响应
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void)
+    {
+        let httpResponse = dataTask.response as! HTTPURLResponse
+        let code = httpResponse.statusCode
+        if(code == 200)
+        {
+            completionHandler(URLSession.ResponseDisposition.allow)
+            self.data = Data.init()
+            self.response = httpResponse
+            self.processPendingRequests()
+        }
+        else
+        {
+            completionHandler(URLSession.ResponseDisposition.cancel)
+        }
+    }
     
+    //接收网络资源下载数据
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data)
+    {
+        self.data?.append(data)
+        self.processPendingRequests()
+    }
+    
+    //网络资源下载请求完毕
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?)
+    {
+        if error == nil
+        {
+            VideoCacheManager.shared().storeDataToDiskCache(data: self.data, key: self.cacheFileKey ?? "", exten: "mp4")
+        }
+        else
+        {
+            print("AVPlayer resouce download error:" + error.debugDescription)
+        }
+    }
+    
+    //网络缓存数据复用
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse, completionHandler: @escaping (CachedURLResponse?) -> Void)
+    {
+        let cachedResponse = proposedResponse
+        if dataTask.currentRequest?.cachePolicy == NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData || dataTask.currentRequest?.url?.absoluteString == self.task?.currentRequest?.url?.absoluteString
+        {
+            completionHandler(nil)
+        }
+        else
+        {
+            completionHandler(cachedResponse)
+        }
+    }
+    
+    func processPendingRequests()
+    {
+        var requestsCompleted = [AVAssetResourceLoadingRequest]()
+        for loadingRequest in self.pendingRequests
+        {
+            let didRespondCompletely = respondWithDataForRequest(loadingRequest: loadingRequest)
+            if didRespondCompletely
+            {
+                requestsCompleted.append(loadingRequest)
+                loadingRequest.finishLoading()
+            }
+        }
+        for completedRequest in requestsCompleted
+        {
+            if let index = pendingRequests.firstIndex(of: completedRequest)
+            {
+                pendingRequests.remove(at: index)
+            }
+        }
+    }
+    
+    func respondWithDataForRequest(loadingRequest:AVAssetResourceLoadingRequest) -> Bool
+    {
+        let mimeType = self.response?.mimeType ?? ""
+        let contentType = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimeType as CFString, nil)
+        loadingRequest.contentInformationRequest?.isByteRangeAccessSupported = true
+        loadingRequest.contentInformationRequest?.contentType = contentType?.takeRetainedValue() as String?
+        loadingRequest.contentInformationRequest?.contentLength = (self.response?.expectedContentLength)!
+        
+        var startOffset:Int64 = loadingRequest.dataRequest?.requestedOffset ?? 0
+        if loadingRequest.dataRequest?.currentOffset != 0
+        {
+            startOffset = loadingRequest.dataRequest?.currentOffset ?? 0
+        }
+        
+        if Int64(data?.count ?? 0)  < startOffset
+        {
+            return false
+        }
+        
+        let unreadBytes:Int64 = Int64(data?.count ?? 0) - (startOffset)
+        let numberOfBytesToRespondWidth:Int64 = min(Int64(loadingRequest.dataRequest?.requestedLength ?? 0), unreadBytes)
+        if let subdata = (data?.subdata(in: Int(startOffset)..<Int(startOffset + numberOfBytesToRespondWidth)))
+        {
+            loadingRequest.dataRequest?.respond(with: subdata)
+            let endOffset:Int64 = startOffset + Int64(loadingRequest.dataRequest?.requestedLength ?? 0)
+            return Int64(data?.count ?? 0) >= endOffset
+        }
+        return false
+    }
 }
 
 
+// MARK: - 自定义ResourceLoad
 extension VideoPlayerView: AVAssetResourceLoaderDelegate
 {
+    func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool
+    {
+        if task == nil
+        {
+            if let url = loadingRequest.request.url?.absoluteString.urlScheme(scheme: sourceScheme ?? "https")
+            {
+                print(url.description)
+                let request = URLRequest.init(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalCacheData, timeoutInterval: 60)
+                task = session?.dataTask(with: request)
+                task?.resume()
+            }
+        }
+        pendingRequests.append(loadingRequest)
+        return true
+    }
     
+    func resourceLoader(_ resourceLoader: AVAssetResourceLoader, didCancel loadingRequest: AVAssetResourceLoadingRequest)
+    {
+        if let index = pendingRequests.firstIndex(of: loadingRequest)
+        {
+            pendingRequests.remove(at: index)
+        }
+    }
 }

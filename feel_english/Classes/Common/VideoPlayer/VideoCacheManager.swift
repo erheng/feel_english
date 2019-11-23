@@ -213,6 +213,49 @@ class VideoCacheManager: NSObject
         return diskCachePathForKey(key: key, exten: nil)
     }
     
+    //清除内存和本地磁盘缓存数据
+    func clearCache(cacheClearCompletedBlock:@escaping VideoCacheClearCompletedBlock)
+    {
+        ioQueue?.async
+        {
+            self.clearMemoryCache()
+            let cacheSize = self.clearDiskCache()
+            DispatchQueue.main.async
+            {
+                cacheClearCompletedBlock(cacheSize)
+            }
+        }
+    }
+    
+    //清除内存缓存数据
+    func clearMemoryCache()
+    {
+        memoryCache?.removeAllObjects()
+    }
+    
+    //清除本地磁盘缓存数据
+    func clearDiskCache() ->String
+    {
+        do
+        {
+            let contents = try fileManager.contentsOfDirectory(atPath: (diskCacheDirectoryURL?.path)!)
+            var folderSize:Float = 0
+            for fileName in contents
+            {
+                let filePath = (diskCacheDirectoryURL?.path)! + "/" + fileName
+                let fileDict = try fileManager.attributesOfItem(atPath: filePath)
+                folderSize += Float(exactly: fileDict[FileAttributeKey.size] as! NSNumber) ?? 0
+                try fileManager.removeItem(atPath: filePath)
+            }
+            return String.format(decimal: folderSize/1024.0/1024.0) ?? "0"
+        }
+        catch
+        {
+            print("clearDiskCache error:"+error.localizedDescription)
+        }
+        return "0"
+    }
+    
     
     
     

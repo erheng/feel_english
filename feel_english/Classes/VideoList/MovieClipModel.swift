@@ -14,6 +14,7 @@ struct MovieClipModel
     let title: String?
     let describe: String?
     let link: String?
+    let coverImage: String?
     let blink: [String]?
     let tags: [String]?
 }

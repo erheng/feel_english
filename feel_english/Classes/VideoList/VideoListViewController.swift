@@ -68,8 +68,8 @@ class VideoListViewController: UIViewController
         
     }
 
-    
-    override func viewWillDisappear(_ animated: Bool)
+        
+    deinit
     {
         self.videoPause()
     }
@@ -78,16 +78,18 @@ class VideoListViewController: UIViewController
     func setUpView()
     {
        self.initUITabView()
-        
+
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1)
         {
+
             self.view.addSubview(self.tableView!)
             self.data = self.movieClipModels
             self.tableView?.reloadData()
-
+ 
             let curIndexPath = IndexPath(row: self.currentIndex, section: 0)
             self.tableView?.scrollToRow(at: curIndexPath, at: UITableView.ScrollPosition.middle, animated: false)
             self.addObserver(self, forKeyPath: "currentIndex", options: [.initial, .new], context: nil)
+
         }
     }
     

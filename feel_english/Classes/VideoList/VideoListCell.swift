@@ -76,6 +76,9 @@ class VideoListCell: UITableViewCell
         
         
         // 设置player status bar
+        playerStatusBar.backgroundColor = UIColor.white
+        playerStatusBar.isHidden = true
+        container.addSubview(playerStatusBar)
         
         // 设置分享
         
@@ -129,7 +132,7 @@ class VideoListCell: UITableViewCell
     {
         self.movieClipModel = data
         playerView.setPlayerSourceUrl(url: (movieClipModel?.link)!)
-        
+
         // 分享和点赞数据
     }
     
@@ -272,7 +275,7 @@ extension VideoListCell: VideoPlayerUpdateDelegate
     func onProgressUpdate(current: CGFloat, total: CGFloat)
     {
         // 视频播放的时间变化
-        print()
+//        print("视频播放时间" + current.description)
     }
     
     func onPlayItemStatusUpdate(status: AVPlayerItem.Status)
@@ -283,9 +286,11 @@ extension VideoListCell: VideoPlayerUpdateDelegate
                 startLoadingPlayItemAnim()
                 break
             case .readyToPlay:
-                startLoadingPlayItemAnim(false)
-                isPlayerReady = true
-                onPlayerReady?()
+                self.isPlayerReady = true
+                self.onPlayerReady?()
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                    self.startLoadingPlayItemAnim(false)
+                })
                 break
             case .failed:
                 startLoadingPlayItemAnim(false)
