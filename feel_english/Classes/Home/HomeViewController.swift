@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController
+class HomeViewController: BaseViewController
 {
 
     override func viewDidLoad()
@@ -25,8 +25,12 @@ class HomeViewController: UIViewController
         label.addGestureRecognizer(tapGesture)
         
         self.view.addSubview(label)
+        
+        let leftBarBtn = UIBarButtonItem(title: "", style: .plain, target: self,action: nil)
+        self.navigationController?.navigationBar.tintColor = UIColor.darkGray
+        self.navigationItem.backBarButtonItem = leftBarBtn
     }
-    
+
     
     @objc func nextPage()
     {

@@ -60,6 +60,7 @@ class VideoListViewController: BaseViewController
         // 设置加载视频时背景图片
         super.setBackgroundImage(imageName: "img_video_loading")
     }
+    
 
     // 视图将要显示
     override func viewWillAppear(_ animated: Bool)

@@ -17,8 +17,22 @@ class BaseViewController: UIViewController
     }
 
 
+    func setLeftBarButton(imageName: String)
+    {
+        let leftButton = UIButton(type: .custom);
+        
+        // TODO: 公关参数统一处理
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        leftButton.frame = CGRect.init(x: 15.0, y: statusBarHeight + 11, width: 20.0, height: 20.0)
+        leftButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
+        leftButton.addTarget(self, action: #selector(pop), for: .touchUpInside);
+        self.view.addSubview(leftButton)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0 , execute: {
+            self.view.bringSubviewToFront(leftButton)
+        })
+    }
     
-    // MARK: - 可以提取到BaseViewController
+    // MARK: 设置背景图片
     func setBackgroundImage(imageName: String)
     {
         let background = UIImageView(frame: UIScreen.main.bounds)
@@ -26,5 +40,11 @@ class BaseViewController: UIViewController
         background.contentMode = .scaleAspectFill
         background.image = UIImage(named: imageName)
         self.view.addSubview(background)
+    }
+    
+    
+    @objc func pop()
+    {
+        self.dismiss(animated: true, completion: nil)
     }
 }
