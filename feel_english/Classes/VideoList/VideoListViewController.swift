@@ -23,6 +23,7 @@ class VideoListViewController: UIViewController
     var pageIndex: Int = 0
     var pageSize: Int = 21
     var uid: String?
+    private var selfObserverKeyPath: String = "currentIndex"
     
     init(movieClips: [MovieClipModel], currentIndex: Int, page: Int, size: Int, uid: String)
     {
@@ -66,14 +67,7 @@ class VideoListViewController: UIViewController
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(),for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-    }
-
-        
-    deinit
-    {
-        self.videoPause()
-    }
-    
+    }    
     
     func setUpView()
     {
@@ -88,9 +82,22 @@ class VideoListViewController: UIViewController
  
             let curIndexPath = IndexPath(row: self.currentIndex, section: 0)
             self.tableView?.scrollToRow(at: curIndexPath, at: UITableView.ScrollPosition.middle, animated: false)
-            self.addObserver(self, forKeyPath: "currentIndex", options: [.initial, .new], context: nil)
+            self.addObserver(self, forKeyPath: self.selfObserverKeyPath, options: [.initial, .new], context: nil)
 
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        tableView?.layer.removeAllAnimations()
+        let cells = tableView?.visibleCells as! [VideoListCell]
+        for cell in cells
+        {
+            cell.playerView.cancelLoading()
+        }
+        NotificationCenter.default.removeObserver(self)
+        self.removeObserver(self, forKeyPath: self.selfObserverKeyPath)
     }
     
     
@@ -192,7 +199,7 @@ extension VideoListViewController
 {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?)
     {
-        if(keyPath == "currentIndex")
+        if(keyPath == self.selfObserverKeyPath)
         {
             isCurrentPlayerPause = false
             weak var cell = tableView?.cellForRow(at: IndexPath.init(row: currentIndex, section: 0)) as? VideoListCell
