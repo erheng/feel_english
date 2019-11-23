@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoListViewController: UIViewController
+class VideoListViewController: BaseViewController
 {
     // TODO: 公共参数 notification
     let StatusBarTouchBeginNotification:String = "StatusBarTouchBeginNotification"
@@ -58,7 +58,7 @@ class VideoListViewController: UIViewController
         setUpView()
         
         // 设置加载视频时背景图片
-        setBackgroundImage(imageName: "img_video_loading")
+        super.setBackgroundImage(imageName: "img_video_loading")
     }
 
     // 视图将要显示
@@ -131,16 +131,6 @@ class VideoListViewController: UIViewController
         tableView?.register(VideoListCell.classForCoder(), forCellReuseIdentifier: VIDEO_CELL)
     }
     
-    
-    // MARK: - 可以提取到BaseViewController
-    func setBackgroundImage(imageName: String)
-    {
-        let background = UIImageView(frame: UIScreen.main.bounds)
-        background.clipsToBounds = true
-        background.contentMode = .scaleAspectFill
-        background.image = UIImage(named: imageName)
-        self.view.addSubview(background)
-    }
 }
 
 
