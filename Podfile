@@ -6,6 +6,8 @@ target 'feel_english' do
   use_frameworks!
   # Pods for feel_english
   pod 'SnapKit', '~> 5.0.0'
+  pod 'SwiftyJSON', '~> 5.0.0'
+  pod 'ObjectMapper', '~> 3.5.1'
 
   target 'feel_englishTests' do
     inherit! :search_paths

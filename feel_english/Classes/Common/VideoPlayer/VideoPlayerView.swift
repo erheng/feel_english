@@ -13,7 +13,7 @@ import MobileCoreServices
 
 
 // MARK: - 自定义Delegate，用于进度、播放状态更新回调
-protocol AVPlayerUpdateDelegate: NSObjectProtocol
+protocol VideoPlayerUpdateDelegate: NSObjectProtocol
 {
     // MARK: 播放进度更新回调方法
     func onProgressUpdate(current: CGFloat, total: CGFloat)
@@ -27,7 +27,7 @@ protocol AVPlayerUpdateDelegate: NSObjectProtocol
 class VideoPlayerView: UIView
 {
     // 代理
-    var delegate: AVPlayerUpdateDelegate?
+    var delegate: VideoPlayerUpdateDelegate?
     // 视频路径
     var sourceURL: URL?
     // 路径Scheme
@@ -104,11 +104,11 @@ class VideoPlayerView: UIView
                 DispatchQueue.main.async {[weak self] in
                 if !hasCache
                 {
-                    self?.sourceURL = self?.sourceURL?.absoluteString.urlScheme(scheme: "streaming")
+//                    self?.sourceURL = self?.sourceURL?.absoluteString.urlScheme(scheme: "streaming")
                 }
                 else
                 {
-                    self?.sourceURL = URL(fileURLWithPath: data as? String ?? "")
+//                    self?.sourceURL = URL(fileURLWithPath: data as? String ?? "")
                 }
                 if let url = self?.sourceURL
                 {
@@ -203,6 +203,18 @@ class VideoPlayerView: UIView
     func rate() -> CGFloat
     {
         return CGFloat(player?.rate ?? 0)
+    }
+    
+    func updatePlayerState()
+    {
+        if player?.rate == 0
+        {
+            play()
+        }
+        else
+        {
+            pause()
+        }
     }
     
     deinit
