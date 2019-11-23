@@ -1,16 +1,24 @@
 PODS:
+  - ObjectMapper (3.5.1)
   - SnapKit (5.0.1)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
+  - ObjectMapper (~> 3.5.1)
   - SnapKit (~> 5.0.0)
+  - SwiftyJSON (~> 5.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs:
+    - ObjectMapper
     - SnapKit
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 61a5c2664439c69fb975f4ab559b733a88a9aa5f
+PODFILE CHECKSUM: b366f8fada5be51d7b7647595359f87c1d8ceddf
 
 COCOAPODS: 1.7.2

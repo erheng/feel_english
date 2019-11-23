@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		BF5517D0A45D49837FD18226 /* Pods_feel_english.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C1723B67B6E6FD9B97825F /* Pods_feel_english.framework */; };
 		DF955BEF23588F75B22A9615 /* Pods_feel_englishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4180765D8C08F6E43A3A5EE5 /* Pods_feel_englishUITests.framework */; };
+		E40B4231238774A700484F68 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B4230238774A700484F68 /* VideoPlayerView.swift */; };
+		E4451A41238781CB0072856D /* VideoCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A40238781CB0072856D /* VideoCacheManager.swift */; };
+		E4451A44238799EE0072856D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A43238799EE0072856D /* StringExtension.swift */; };
+		E4451A462387B0640072856D /* AVPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A452387B0640072856D /* AVPlayerManager.swift */; };
+		E4451A492387C2CE0072856D /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A482387C2CE0072856D /* VideoListViewController.swift */; };
+		E4451A4B2387C3600072856D /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A4A2387C3600072856D /* VideoListCell.swift */; };
+		E4451A4D2387DFDC0072856D /* MovieClipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A4C2387DFDC0072856D /* MovieClipModel.swift */; };
 		E47ACD3A2386C745006A3D36 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD392386C745006A3D36 /* BaseTabBarController.swift */; };
 		E47ACD3C2386C75C006A3D36 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD3B2386C75C006A3D36 /* BaseNavigationController.swift */; };
 		E47ACD3E2386C833006A3D36 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD3D2386C833006A3D36 /* HomeViewController.swift */; };
@@ -48,6 +55,13 @@
 		DBCD58FE13BD3B7805B48456 /* Pods-feel_englishUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_englishUITests.release.xcconfig"; path = "Target Support Files/Pods-feel_englishUITests/Pods-feel_englishUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DCFE6830B88E19AD38A9B587 /* Pods-feel_english.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_english.debug.xcconfig"; path = "Target Support Files/Pods-feel_english/Pods-feel_english.debug.xcconfig"; sourceTree = "<group>"; };
 		DD2DACDE63A441813311F391 /* Pods-feel_englishTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_englishTests.release.xcconfig"; path = "Target Support Files/Pods-feel_englishTests/Pods-feel_englishTests.release.xcconfig"; sourceTree = "<group>"; };
+		E40B4230238774A700484F68 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		E4451A40238781CB0072856D /* VideoCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCacheManager.swift; sourceTree = "<group>"; };
+		E4451A43238799EE0072856D /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		E4451A452387B0640072856D /* AVPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerManager.swift; sourceTree = "<group>"; };
+		E4451A482387C2CE0072856D /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
+		E4451A4A2387C3600072856D /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
+		E4451A4C2387DFDC0072856D /* MovieClipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieClipModel.swift; sourceTree = "<group>"; };
 		E47ACD392386C745006A3D36 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		E47ACD3B2386C75C006A3D36 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		E47ACD3D2386C833006A3D36 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +119,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E40B422F2387748100484F68 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				E40B4230238774A700484F68 /* VideoPlayerView.swift */,
+				E4451A452387B0640072856D /* AVPlayerManager.swift */,
+				E4451A40238781CB0072856D /* VideoCacheManager.swift */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		E4451A42238799CA0072856D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E4451A43238799EE0072856D /* StringExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E4451A472387C2AC0072856D /* VideoList */ = {
+			isa = PBXGroup;
+			children = (
+				E4451A4A2387C3600072856D /* VideoListCell.swift */,
+				E4451A4C2387DFDC0072856D /* MovieClipModel.swift */,
+				E4451A482387C2CE0072856D /* VideoListViewController.swift */,
+			);
+			path = VideoList;
+			sourceTree = "<group>";
+		};
 		E47ACD312386C62C006A3D36 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +154,8 @@
 				E47ACD322386C62C006A3D36 /* Home */,
 				E47ACD342386C62C006A3D36 /* LearnPlan */,
 				E47ACD352386C62C006A3D36 /* Me */,
+				E4451A42238799CA0072856D /* Utils */,
+				E4451A472387C2AC0072856D /* VideoList */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -128,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				E47ACD382386C745006A3D36 /* Base */,
+				E40B422F2387748100484F68 /* VideoPlayer */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -442,12 +487,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4451A41238781CB0072856D /* VideoCacheManager.swift in Sources */,
 				E47ACD422386C86B006A3D36 /* MeViewController.swift in Sources */,
+				E4451A4D2387DFDC0072856D /* MovieClipModel.swift in Sources */,
 				E47ACD402386C851006A3D36 /* LearnPleanViewController.swift in Sources */,
 				E47ACD3A2386C745006A3D36 /* BaseTabBarController.swift in Sources */,
 				E4920F042386C17700D4F0C0 /* AppDelegate.swift in Sources */,
+				E4451A4B2387C3600072856D /* VideoListCell.swift in Sources */,
+				E4451A44238799EE0072856D /* StringExtension.swift in Sources */,
 				E47ACD3C2386C75C006A3D36 /* BaseNavigationController.swift in Sources */,
+				E4451A462387B0640072856D /* AVPlayerManager.swift in Sources */,
 				E47ACD3E2386C833006A3D36 /* HomeViewController.swift in Sources */,
+				E40B4231238774A700484F68 /* VideoPlayerView.swift in Sources */,
+				E4451A492387C2CE0072856D /* VideoListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
