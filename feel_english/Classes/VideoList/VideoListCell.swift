@@ -47,7 +47,7 @@ class VideoListCell: UITableViewCell
     {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
-        self.backgroundColor = UIColor.black
+        self.backgroundColor = UIColor.clear
         self.lastTapTime = 0
         self.lastTapPoint = .zero
         self.initSubViews()
@@ -286,6 +286,7 @@ extension VideoListCell: VideoPlayerUpdateDelegate
                 startLoadingPlayItemAnim()
                 break
             case .readyToPlay:
+                self.backgroundColor = UIColor.black
                 self.isPlayerReady = true
                 self.onPlayerReady?()
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
