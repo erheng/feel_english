@@ -27,6 +27,7 @@
 		E4920F1B2386C17900D4F0C0 /* feel_englishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4920F1A2386C17900D4F0C0 /* feel_englishTests.swift */; };
 		E4920F262386C17900D4F0C0 /* feel_englishUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4920F252386C17900D4F0C0 /* feel_englishUITests.swift */; };
 		E4B09DD1238A23EF00CE08B2 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B09DD0238A23EF00CE08B2 /* FavoriteView.swift */; };
+		E4B09DD3238AB48D00CE08B2 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B09DD2238AB48D00CE08B2 /* ShareView.swift */; };
 		E4DF92012389872C0053C96F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF92002389872C0053C96F /* BaseViewController.swift */; };
 		FCE301885FF37BDB93D911FE /* Pods_feel_englishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C07762493BE1443EFDDBB59 /* Pods_feel_englishTests.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		E4920F252386C17900D4F0C0 /* feel_englishUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feel_englishUITests.swift; sourceTree = "<group>"; };
 		E4920F272386C17900D4F0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4B09DD0238A23EF00CE08B2 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		E4B09DD2238AB48D00CE08B2 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		E4DF92002389872C0053C96F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E5C1723B67B6E6FD9B97825F /* Pods_feel_english.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_feel_english.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 				E4B09DD0238A23EF00CE08B2 /* FavoriteView.swift */,
 				E4451A4A2387C3600072856D /* VideoListCell.swift */,
 				E4451A482387C2CE0072856D /* VideoListViewController.swift */,
+				E4B09DD2238AB48D00CE08B2 /* ShareView.swift */,
 			);
 			path = VideoList;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				E4DF92012389872C0053C96F /* BaseViewController.swift in Sources */,
 				E4920F042386C17700D4F0C0 /* AppDelegate.swift in Sources */,
 				E4451A4B2387C3600072856D /* VideoListCell.swift in Sources */,
+				E4B09DD3238AB48D00CE08B2 /* ShareView.swift in Sources */,
 				E4451A44238799EE0072856D /* StringExtension.swift in Sources */,
 				E47ACD3C2386C75C006A3D36 /* BaseNavigationController.swift in Sources */,
 				E4451A462387B0640072856D /* AVPlayerManager.swift in Sources */,
