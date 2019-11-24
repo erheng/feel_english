@@ -8,6 +8,8 @@ target 'feel_english' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftyJSON', '~> 5.0.0'
   pod 'ObjectMapper', '~> 3.5.1'
+  pod 'RxSwift', '~> 5.0.1'
+  pod 'RxCocoa', '~> 5.0.1'
 
   target 'feel_englishTests' do
     inherit! :search_paths
