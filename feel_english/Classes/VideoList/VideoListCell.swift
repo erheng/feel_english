@@ -9,13 +9,12 @@
 import Foundation
 import UIKit
 import AVFoundation
+import SnapKit
 
 typealias OnPlayerReady = () -> Void
 
-let LIKE_BEFORE_TAP_ACTION:Int = 1000
-let LIKE_AFTER_TAP_ACTION:Int = 2000
-let COMMENT_TAP_ACTION:Int = 3000
-let SHARE_TAP_ACTION:Int = 4000
+let COMMENT_TAP_ACTION: Int = 3000
+let SHARE_TAP_ACTION: Int = 4000
 
 // MARk: - 自定义视频列表单元格
 class VideoListCell: UITableViewCell
@@ -33,9 +32,12 @@ class VideoListCell: UITableViewCell
     var onPlayerReady: OnPlayerReady?
     var isPlayerReady: Bool = false
     
-    // 分享按钮
-    
+    // MARK: some subview
+        
     // 点赞按钮
+    var favorite: FavoriteView = FavoriteView()
+    var favoriteNum: UILabel = UILabel()
+    // 分享按钮
     
     // listen
     
@@ -82,7 +84,15 @@ class VideoListCell: UITableViewCell
         
         // 设置分享
         
+        
         // 设置点赞
+        container.addSubview(favorite)
+        
+        favoriteNum.text = "320"
+        favoriteNum.textColor = UIColor.white
+        // TODO: 公共参数
+        favoriteNum.font = UIFont.systemFont(ofSize: 10.0)
+        container.addSubview(favoriteNum)
         
         // 设置listen
         
@@ -107,7 +117,16 @@ class VideoListCell: UITableViewCell
         // 设置分享按钮布局
         
         // 设置点赞按钮布局
-        
+        favorite.snp.makeConstraints { make in
+            make.bottom.equalTo(self).inset(60 + safeAreaBottomHeight);
+            make.right.equalTo(self).inset(10);
+            make.width.equalTo(50);
+            make.height.equalTo(45);
+        }
+        favoriteNum.snp.makeConstraints { make in
+            make.top.equalTo(self.favorite.snp.bottom);
+            make.centerX.equalTo(self.favorite);
+        }
         // 设置listen
         
         // 设置write
@@ -125,6 +144,7 @@ class VideoListCell: UITableViewCell
         isPlayerReady = false
         playerView.cancelLoading()
         pauseIcon.isHidden = true
+        favorite.resetView()
     }
     
     

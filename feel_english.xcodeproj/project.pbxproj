@@ -26,6 +26,7 @@
 		E4920F0D2386C17900D4F0C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4920F0C2386C17900D4F0C0 /* Assets.xcassets */; };
 		E4920F1B2386C17900D4F0C0 /* feel_englishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4920F1A2386C17900D4F0C0 /* feel_englishTests.swift */; };
 		E4920F262386C17900D4F0C0 /* feel_englishUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4920F252386C17900D4F0C0 /* feel_englishUITests.swift */; };
+		E4B09DD1238A23EF00CE08B2 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B09DD0238A23EF00CE08B2 /* FavoriteView.swift */; };
 		E4DF92012389872C0053C96F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF92002389872C0053C96F /* BaseViewController.swift */; };
 		FCE301885FF37BDB93D911FE /* Pods_feel_englishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C07762493BE1443EFDDBB59 /* Pods_feel_englishTests.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		E4920F212386C17900D4F0C0 /* feel_englishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = feel_englishUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4920F252386C17900D4F0C0 /* feel_englishUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feel_englishUITests.swift; sourceTree = "<group>"; };
 		E4920F272386C17900D4F0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4B09DD0238A23EF00CE08B2 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		E4DF92002389872C0053C96F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E5C1723B67B6E6FD9B97825F /* Pods_feel_english.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_feel_english.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -142,8 +144,9 @@
 		E4451A472387C2AC0072856D /* VideoList */ = {
 			isa = PBXGroup;
 			children = (
-				E4451A4A2387C3600072856D /* VideoListCell.swift */,
 				E4451A4C2387DFDC0072856D /* MovieClipModel.swift */,
+				E4B09DD0238A23EF00CE08B2 /* FavoriteView.swift */,
+				E4451A4A2387C3600072856D /* VideoListCell.swift */,
 				E4451A482387C2CE0072856D /* VideoListViewController.swift */,
 			);
 			path = VideoList;
@@ -503,6 +506,7 @@
 				E4451A462387B0640072856D /* AVPlayerManager.swift in Sources */,
 				E47ACD3E2386C833006A3D36 /* HomeViewController.swift in Sources */,
 				E40B4231238774A700484F68 /* VideoPlayerView.swift in Sources */,
+				E4B09DD1238A23EF00CE08B2 /* FavoriteView.swift in Sources */,
 				E4451A492387C2CE0072856D /* VideoListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
