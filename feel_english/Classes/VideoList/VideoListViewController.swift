@@ -15,7 +15,6 @@ class VideoListViewController: BaseViewController
     
     var tableView: UITableView?
     @objc dynamic var currentIndex: Int = 0
-    
     var isCurrentPlayerPause: Bool = false
     var data = [MovieClipModel]()
     var movieClipModels = [MovieClipModel]()
@@ -24,6 +23,7 @@ class VideoListViewController: BaseViewController
     var pageSize: Int = 21
     var uid: String?
     private var selfObserverKeyPath: String = "currentIndex"
+    
     
     init(movieClips: [MovieClipModel], currentIndex: Int, page: Int, size: Int, uid: String)
     {
