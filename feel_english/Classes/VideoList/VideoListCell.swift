@@ -36,11 +36,9 @@ class VideoListCell: UITableViewCell
 
     // 分享按钮
     var share: ShareView = ShareView(number: "532")
-    var shareNum: UILabel = UILabel()
         
     // 点赞按钮
     var favorite: FavoriteView = FavoriteView()
-    var favoriteNum: UILabel = UILabel()
     
     // listen
     
@@ -90,12 +88,7 @@ class VideoListCell: UITableViewCell
 
         // 设置点赞
         container.addSubview(favorite)
-        
-        favoriteNum.text = "320"
-        favoriteNum.textColor = UIColor.white
-        // TODO: 公共参数
-        favoriteNum.font = UIFont.systemFont(ofSize: 10.0)
-        container.addSubview(favoriteNum)
+
         
         // 设置listen
         
@@ -122,7 +115,7 @@ class VideoListCell: UITableViewCell
             make.bottom.equalTo(self).inset(70 + safeAreaBottomHeight)
             make.right.equalTo(self).inset(10)
             make.width.equalTo(50)
-            make.height.equalTo(67)
+            make.height.equalTo(57)
         }
 
 
@@ -131,11 +124,7 @@ class VideoListCell: UITableViewCell
             make.bottom.equalTo(self.share.snp.top).inset(-50)
             make.right.equalTo(self).inset(10)
             make.width.equalTo(50)
-            make.height.equalTo(45)
-        }
-        favoriteNum.snp.makeConstraints { make in
-            make.top.equalTo(self.favorite.snp.bottom)
-            make.centerX.equalTo(self.favorite)
+            make.height.equalTo(57)
         }
         // 设置listen
         
@@ -164,6 +153,7 @@ class VideoListCell: UITableViewCell
         playerView.setPlayerSourceUrl(url: (movieClipModel?.link)!)
         // 分享和点赞数据
         self.share.shareNumLabel.text = data.shareNum?.description
+        self.favorite.favoriteNumLabel.text = ( data.shareNum! - 1 ).description
     }
     
     
@@ -305,7 +295,7 @@ extension VideoListCell: VideoPlayerUpdateDelegate
     func onProgressUpdate(current: CGFloat, total: CGFloat)
     {
         // 视频播放的时间变化
-//        print("视频播放时间" + current.description)
+        // print("视频播放时间" + current.description)
     }
     
     func onPlayItemStatusUpdate(status: AVPlayerItem.Status)
