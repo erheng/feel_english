@@ -33,11 +33,14 @@ class VideoListCell: UITableViewCell
     var isPlayerReady: Bool = false
     
     // MARK: some subview
+
+    // 分享按钮
+    var share: ShareView = ShareView()
+    var shareNum: UILabel = UILabel()
         
     // 点赞按钮
     var favorite: FavoriteView = FavoriteView()
     var favoriteNum: UILabel = UILabel()
-    // 分享按钮
     
     // listen
     
@@ -83,8 +86,12 @@ class VideoListCell: UITableViewCell
         container.addSubview(playerStatusBar)
         
         // 设置分享
-        
-        
+        container.addSubview(share)
+
+        shareNum.text = "1223"
+        shareNum.textColor = UIColor.white
+        shareNum.font = UIFont.systemFont(ofSize: 10.0)
+        container.addSubview(shareNum)
         // 设置点赞
         container.addSubview(favorite)
         
@@ -115,17 +122,28 @@ class VideoListCell: UITableViewCell
         playerStatusBar.frame = CGRect(x: self.bounds.midX - 0.5, y: self.bounds.maxY - 49.5 - safeAreaBottomHeight, width: 1.0, height: 1)
         
         // 设置分享按钮布局
-        
+        share.snp.makeConstraints{ make in
+            make.bottom.equalTo(self).inset(70 + safeAreaBottomHeight)
+            make.right.equalTo(self).inset(10)
+            make.width.equalTo(50)
+            make.height.equalTo(45)
+        }
+        shareNum.snp.makeConstraints{ make in
+            make.top.equalTo(self.share.snp.bottom)
+            make.centerX.equalTo(self.share)
+        }
+
+
         // 设置点赞按钮布局
         favorite.snp.makeConstraints { make in
-            make.bottom.equalTo(self).inset(60 + safeAreaBottomHeight);
-            make.right.equalTo(self).inset(10);
-            make.width.equalTo(50);
-            make.height.equalTo(45);
+            make.bottom.equalTo(self.share.snp.top).inset(-50)
+            make.right.equalTo(self).inset(10)
+            make.width.equalTo(50)
+            make.height.equalTo(45)
         }
         favoriteNum.snp.makeConstraints { make in
-            make.top.equalTo(self.favorite.snp.bottom);
-            make.centerX.equalTo(self.favorite);
+            make.top.equalTo(self.favorite.snp.bottom)
+            make.centerX.equalTo(self.favorite)
         }
         // 设置listen
         
