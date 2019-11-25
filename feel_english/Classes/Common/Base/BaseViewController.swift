@@ -20,9 +20,8 @@ class BaseViewController: UIViewController
     func setLeftBarButton(imageName: String)
     {
         let leftButton = UIButton(type: .custom);
-        
-        // TODO: 公关参数统一处理
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+
+        let statusBarHeight = STATUS_BAR_HEIGHT
         leftButton.frame = CGRect.init(x: 15.0, y: statusBarHeight + 11, width: 20.0, height: 20.0)
         leftButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
         leftButton.addTarget(self, action: #selector(pop), for: .touchUpInside);
