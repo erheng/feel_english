@@ -78,7 +78,7 @@ class VideoPlayerView: UIView
         self.layer.addSublayer(self.playerLayer)
         
         self.addProgressObserver()
-        cancelLoadingQueue = DispatchQueue(label: "ai.deepfell")
+        cancelLoadingQueue = DispatchQueue(label: "ai.deepfeel")
     }
     
     

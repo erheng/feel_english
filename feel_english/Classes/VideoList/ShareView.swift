@@ -38,6 +38,7 @@ class ShareView: UIView
         shareImage.isUserInteractionEnabled = true
         shareImage.tag = SHARE_TAP_ACTION
         shareImage.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleGesture(sender:))))
+        self.addSubview(shareImage)
     }
     
     

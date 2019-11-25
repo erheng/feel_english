@@ -108,12 +108,8 @@ class VideoListViewController: BaseViewController
     // MARK:- UITableView set
     func initUITabView() -> Void
     {
-        // TODO: 公共参数统一处理
-        let screenWidth = UIScreen.main.bounds.size.width
-        let screenHeight = UIScreen.main.bounds.size.height
-        
-        tableView = UITableView(frame: CGRect(x: 0, y: -screenHeight, width: screenWidth, height: screenHeight * 3))
-        tableView?.contentInset = UIEdgeInsets(top: screenHeight, left: 0, bottom: screenHeight * 3, right: 0);
+        tableView = UITableView(frame: CGRect(x: 0, y: -SCREEN_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT * 3))
+        tableView?.contentInset = UIEdgeInsets(top: SCREEN_HEIGHT, left: 0, bottom: SCREEN_HEIGHT * 3, right: 0);
         tableView?.backgroundColor = UIColor.clear
         tableView?.delegate = self
         tableView?.dataSource = self
