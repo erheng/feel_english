@@ -35,7 +35,7 @@ class VideoListCell: UITableViewCell
     // MARK: some subview
 
     // 分享按钮
-    var share: ShareView = ShareView()
+    var share: ShareView = ShareView(number: "532")
     var shareNum: UILabel = UILabel()
         
     // 点赞按钮
@@ -88,10 +88,6 @@ class VideoListCell: UITableViewCell
         // 设置分享
         container.addSubview(share)
 
-        shareNum.text = "1223"
-        shareNum.textColor = UIColor.white
-        shareNum.font = UIFont.systemFont(ofSize: 10.0)
-        container.addSubview(shareNum)
         // 设置点赞
         container.addSubview(favorite)
         
@@ -126,11 +122,7 @@ class VideoListCell: UITableViewCell
             make.bottom.equalTo(self).inset(70 + safeAreaBottomHeight)
             make.right.equalTo(self).inset(10)
             make.width.equalTo(50)
-            make.height.equalTo(45)
-        }
-        shareNum.snp.makeConstraints{ make in
-            make.top.equalTo(self.share.snp.bottom)
-            make.centerX.equalTo(self.share)
+            make.height.equalTo(67)
         }
 
 
@@ -170,8 +162,8 @@ class VideoListCell: UITableViewCell
     {
         self.movieClipModel = data
         playerView.setPlayerSourceUrl(url: (movieClipModel?.link)!)
-
         // 分享和点赞数据
+        self.share.shareNumLabel.text = data.shareNum?.description
     }
     
     

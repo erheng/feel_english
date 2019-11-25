@@ -137,7 +137,7 @@ extension VideoListViewController: UITableViewDelegate, UITableViewDataSource
     // 设置一个章节中单元格的个数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return data.count
+        data.count
     }
     
     // 初始化和复用单元格 每绘制一个调用一次

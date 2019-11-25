@@ -17,4 +17,5 @@ struct MovieClipModel
     let coverImage: String?
     let blink: [String]?
     let tags: [String]?
+    let shareNum: Int?
 }

@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import SnapKit
 
 class ShareView: UIView
 {
     var shareImage: UIImageView = UIImageView(image: UIImage(named: "icon_home_share"))
+    var shareNum: String?
+    var shareNumLabel: UILabel = UILabel()
     
-    init()
+    init(number: String)
     {
-        super.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 50, height: 45)))
+        super.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 50, height: 67)))
+        self.shareNum = number
         initSubView()
     }
     
@@ -33,15 +37,37 @@ class ShareView: UIView
     
     func initSubView()
     {
-        shareImage.frame = self.frame
         shareImage.contentMode = .center
         shareImage.isUserInteractionEnabled = true
         shareImage.tag = SHARE_TAP_ACTION
         shareImage.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(handleGesture(sender:))))
         self.addSubview(shareImage)
+
+        shareNumLabel.text = self.shareNum
+        shareNumLabel.textColor = UIColor.white
+        shareNumLabel.font = UIFont.systemFont(ofSize: 10.0)
+        self.addSubview(shareNumLabel)
+
+
     }
-    
-    
+
+    override func layoutSubviews()
+    {
+        super.layoutSubviews()
+
+        shareImage.snp.makeConstraints{ make in
+            make.top.equalTo(self.snp.top)
+            make.centerX.equalTo(self)
+            make.width.equalTo(50)
+            make.height.equalTo(45)
+        }
+
+        shareNumLabel.snp.makeConstraints{ make in
+            make.top.equalTo(self.shareImage.snp.bottom)
+            make.centerX.equalTo(self)
+        }
+    }
+
     @objc func handleGesture(sender: UITapGestureRecognizer)
     {
         
