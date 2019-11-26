@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B2D0B76101ADA31767657AF3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0BF27D25E30A588FF3314 /* Constants.swift */; };
+		B2D0BB01FF98BD0B2FC0CE16 /* SubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0BA6AF77D5255C8CE817E /* SubtitleView.swift */; };
 		BF5517D0A45D49837FD18226 /* Pods_feel_english.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C1723B67B6E6FD9B97825F /* Pods_feel_english.framework */; };
 		DF955BEF23588F75B22A9615 /* Pods_feel_englishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4180765D8C08F6E43A3A5EE5 /* Pods_feel_englishUITests.framework */; };
 		E40B4231238774A700484F68 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B4230238774A700484F68 /* VideoPlayerView.swift */; };
@@ -55,6 +56,7 @@
 		4180765D8C08F6E43A3A5EE5 /* Pods_feel_englishUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_feel_englishUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		519771E60456796924EA34F8 /* Pods-feel_english.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_english.release.xcconfig"; path = "Target Support Files/Pods-feel_english/Pods-feel_english.release.xcconfig"; sourceTree = "<group>"; };
 		5B1E5DBB480003E826CBC0E1 /* Pods-feel_englishTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_englishTests.debug.xcconfig"; path = "Target Support Files/Pods-feel_englishTests/Pods-feel_englishTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B2D0BA6AF77D5255C8CE817E /* SubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleView.swift; sourceTree = "<group>"; };
 		B2D0BF27D25E30A588FF3314 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D300DC14C0AFB6B7DA050C2A /* Pods-feel_englishUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_englishUITests.debug.xcconfig"; path = "Target Support Files/Pods-feel_englishUITests/Pods-feel_englishUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBCD58FE13BD3B7805B48456 /* Pods-feel_englishUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_englishUITests.release.xcconfig"; path = "Target Support Files/Pods-feel_englishUITests/Pods-feel_englishUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				E4451A4A2387C3600072856D /* VideoListCell.swift */,
 				E4451A482387C2CE0072856D /* VideoListViewController.swift */,
 				E4B09DD2238AB48D00CE08B2 /* ShareView.swift */,
+				B2D0BA6AF77D5255C8CE817E /* SubtitleView.swift */,
 			);
 			path = VideoList;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				E4B09DD1238A23EF00CE08B2 /* FavoriteView.swift in Sources */,
 				E4451A492387C2CE0072856D /* VideoListViewController.swift in Sources */,
 				B2D0B76101ADA31767657AF3 /* Constants.swift in Sources */,
+				B2D0BB01FF98BD0B2FC0CE16 /* SubtitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

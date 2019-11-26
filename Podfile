@@ -10,6 +10,7 @@ target 'feel_english' do
   pod 'ObjectMapper', '~> 3.5.1'
   pod 'RxSwift', '~> 5.0.1'
   pod 'RxCocoa', '~> 5.0.1'
+  pod 'BSText', '~> 1.0.3'
 
   target 'feel_englishTests' do
     inherit! :search_paths
