@@ -13,7 +13,7 @@ class FavoriteView: UIView
 {
     var favoriteBeforeImage = UIImageView(image: UIImage(named: "icon_home_like_before"))
     var favoriteAfterImage = UIImageView(image: UIImage(named: "icon_home_like_after"))
-    
+    var favoriteNumLabel: UILabel = UILabel()
     public private(set) var LIKE_BEFORE_TAP_ACTION: Int = 1000
     public private(set) var LIKE_AFTER_TAP_ACTION: Int = 2000
     
@@ -50,8 +50,22 @@ class FavoriteView: UIView
         favoriteAfterImage.isHidden = true
         favoriteAfterImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleGesture(sender:))))
         self.addSubview(favoriteAfterImage)
+
+        favoriteNumLabel.textColor = UIColor.white
+        favoriteNumLabel.font = UIFont.systemFont(ofSize: 10.0)
+        self.addSubview(favoriteNumLabel)
     }
-    
+
+    override func layoutSubviews()
+    {
+        super.layoutSubviews()
+
+        favoriteNumLabel.snp.makeConstraints{ make in
+            make.top.equalTo(self.snp.top).inset(45)
+            make.centerX.equalTo(self)
+        }
+    }
+
     @objc func handleGesture(sender: UIGestureRecognizer)
     {
         switch sender.view?.tag

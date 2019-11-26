@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import AVFoundation
 import SnapKit
+import BSText
 
 typealias OnPlayerReady = () -> Void
 
@@ -31,16 +32,18 @@ class VideoListCell: UITableViewCell
     var playerView: VideoPlayerView = VideoPlayerView()
     var onPlayerReady: OnPlayerReady?
     var isPlayerReady: Bool = false
-    
+
+    var subtitleLastEndTime: CLongLong = 0
     // MARK: some subview
 
+    // subtitle
+    let subtitleView: SubtitleView = SubtitleView()
+
     // 分享按钮
-    var share: ShareView = ShareView()
-    var shareNum: UILabel = UILabel()
+    var share: ShareView = ShareView(number: "532")
         
     // 点赞按钮
     var favorite: FavoriteView = FavoriteView()
-    var favoriteNum: UILabel = UILabel()
     
     // listen
     
@@ -78,28 +81,21 @@ class VideoListCell: UITableViewCell
         pauseIcon.layer.zPosition = 3
         pauseIcon.isHidden = true
         container.addSubview(pauseIcon)
-        
-        
+
         // 设置player status bar
         playerStatusBar.backgroundColor = UIColor.white
         playerStatusBar.isHidden = true
         container.addSubview(playerStatusBar)
+
+        // 添加subtitle view
+        self.addSubview(self.subtitleView)
         
         // 设置分享
         container.addSubview(share)
 
-        shareNum.text = "1223"
-        shareNum.textColor = UIColor.white
-        shareNum.font = UIFont.systemFont(ofSize: 10.0)
-        container.addSubview(shareNum)
         // 设置点赞
         container.addSubview(favorite)
-        
-        favoriteNum.text = "320"
-        favoriteNum.textColor = UIColor.white
-        // TODO: 公共参数
-        favoriteNum.font = UIFont.systemFont(ofSize: 10.0)
-        container.addSubview(favoriteNum)
+
         
         // 设置listen
         
@@ -120,38 +116,27 @@ class VideoListCell: UITableViewCell
         // 底部安全区域
         let safeAreaBottomHeight: CGFloat = (UIScreen.main.bounds.height >= 812.0 && UIDevice.current.model == "iPhone"  ? 30 : 0)
         playerStatusBar.frame = CGRect(x: self.bounds.midX - 0.5, y: self.bounds.maxY - 49.5 - safeAreaBottomHeight, width: 1.0, height: 1)
-        
+
         // 设置分享按钮布局
         share.snp.makeConstraints{ make in
             make.bottom.equalTo(self).inset(70 + safeAreaBottomHeight)
             make.right.equalTo(self).inset(10)
             make.width.equalTo(50)
-            make.height.equalTo(45)
+            make.height.equalTo(57)
         }
-        shareNum.snp.makeConstraints{ make in
-            make.top.equalTo(self.share.snp.bottom)
-            make.centerX.equalTo(self.share)
-        }
-
 
         // 设置点赞按钮布局
         favorite.snp.makeConstraints { make in
             make.bottom.equalTo(self.share.snp.top).inset(-50)
             make.right.equalTo(self).inset(10)
             make.width.equalTo(50)
-            make.height.equalTo(45)
-        }
-        favoriteNum.snp.makeConstraints { make in
-            make.top.equalTo(self.favorite.snp.bottom)
-            make.centerX.equalTo(self.favorite)
+            make.height.equalTo(57)
         }
         // 设置listen
         
         // 设置write
         
         // 设置speed
-        
-        
     }
     
     
@@ -170,8 +155,9 @@ class VideoListCell: UITableViewCell
     {
         self.movieClipModel = data
         playerView.setPlayerSourceUrl(url: (movieClipModel?.link)!)
-
         // 分享和点赞数据
+        self.share.shareNumLabel.text = data.shareNum?.description
+        self.favorite.favoriteNumLabel.text = ( data.shareNum! - 1 ).description
     }
     
     
@@ -313,7 +299,18 @@ extension VideoListCell: VideoPlayerUpdateDelegate
     func onProgressUpdate(current: CGFloat, total: CGFloat)
     {
         // 视频播放的时间变化
-//        print("视频播放时间" + current.description)
+        // print("视频播放时间" + (current * 1000).description)
+        if current <= 0
+        {
+            self.subtitleLastEndTime = 0
+        }
+        // 根据时间获取 subtitle
+        let subtitle: Subtitle? = self.movieClipModel?.search(for: Int(ceil(current * 1000)))
+        if ((subtitle != nil) && Int(ceil(current * 1000)) >= self.subtitleLastEndTime)
+        {
+            self.subtitleLastEndTime = subtitle!.endTime
+            self.subtitleView.changeSubtitleText(for: subtitle?.text ?? "")
+        }
     }
     
     func onPlayItemStatusUpdate(status: AVPlayerItem.Status)
