@@ -18,6 +18,7 @@
 		E4451A492387C2CE0072856D /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A482387C2CE0072856D /* VideoListViewController.swift */; };
 		E4451A4B2387C3600072856D /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A4A2387C3600072856D /* VideoListCell.swift */; };
 		E4451A4D2387DFDC0072856D /* MovieClipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A4C2387DFDC0072856D /* MovieClipModel.swift */; };
+		E44EE974238E7BAC00F20CE7 /* SimpleWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EE973238E7BAC00F20CE7 /* SimpleWordView.swift */; };
 		E47ACD3A2386C745006A3D36 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD392386C745006A3D36 /* BaseTabBarController.swift */; };
 		E47ACD3C2386C75C006A3D36 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD3B2386C75C006A3D36 /* BaseNavigationController.swift */; };
 		E47ACD3E2386C833006A3D36 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ACD3D2386C833006A3D36 /* HomeViewController.swift */; };
@@ -69,6 +70,7 @@
 		E4451A482387C2CE0072856D /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
 		E4451A4A2387C3600072856D /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
 		E4451A4C2387DFDC0072856D /* MovieClipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieClipModel.swift; sourceTree = "<group>"; };
+		E44EE973238E7BAC00F20CE7 /* SimpleWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWordView.swift; sourceTree = "<group>"; };
 		E47ACD392386C745006A3D36 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		E47ACD3B2386C75C006A3D36 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		E47ACD3D2386C833006A3D36 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				E4451A482387C2CE0072856D /* VideoListViewController.swift */,
 				E4B09DD2238AB48D00CE08B2 /* ShareView.swift */,
 				B2D0BA6AF77D5255C8CE817E /* SubtitleView.swift */,
+				E44EE973238E7BAC00F20CE7 /* SimpleWordView.swift */,
 			);
 			path = VideoList;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				E47ACD3A2386C745006A3D36 /* BaseTabBarController.swift in Sources */,
 				E4DF92012389872C0053C96F /* BaseViewController.swift in Sources */,
 				E4920F042386C17700D4F0C0 /* AppDelegate.swift in Sources */,
+				E44EE974238E7BAC00F20CE7 /* SimpleWordView.swift in Sources */,
 				E4451A4B2387C3600072856D /* VideoListCell.swift in Sources */,
 				E4B09DD3238AB48D00CE08B2 /* ShareView.swift in Sources */,
 				E4451A44238799EE0072856D /* StringExtension.swift in Sources */,
