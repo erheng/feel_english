@@ -1,7 +1,14 @@
 PODS:
+  - Alamofire (4.9.1)
   - BSText (1.0.3):
     - YYImage
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
   - ObjectMapper (3.5.1)
+  - Result (4.1.0)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -16,6 +23,7 @@ PODS:
 
 DEPENDENCIES:
   - BSText (~> 1.0.3)
+  - Moya (~> 13.0.1)
   - ObjectMapper (~> 3.5.1)
   - RxCocoa (~> 5.0.1)
   - RxSwift (~> 5.0.1)
@@ -28,15 +36,21 @@ SPEC REPOS:
     - SnapKit
     - SwiftyJSON
   trunk:
+    - Alamofire
     - BSText
+    - Moya
+    - Result
     - RxCocoa
     - RxRelay
     - RxSwift
     - YYImage
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BSText: af475fef7bbad98c5cbd8b930158f8768880284f
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
@@ -44,6 +58,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: 3f8255041e608a97dae56c73cfbedefa37cd6932
+PODFILE CHECKSUM: aa1f22e3bf98cac069e6796967f27b119571bcb1
 
 COCOAPODS: 1.8.4

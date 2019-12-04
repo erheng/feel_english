@@ -9,6 +9,7 @@ target 'feel_english' do
   pod 'SwiftyJSON', '~> 5.0.0'
   pod 'ObjectMapper', '~> 3.5.1'
   pod 'RxSwift', '~> 5.0.1'
+  pod 'Moya', '~> 13.0.1'
   pod 'RxCocoa', '~> 5.0.1'
   pod 'BSText', '~> 1.0.3'
 
