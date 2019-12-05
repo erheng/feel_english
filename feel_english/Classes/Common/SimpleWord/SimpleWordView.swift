@@ -9,6 +9,8 @@
 import UIKit
 import SnapKit
 import AVFoundation
+import RxSwift
+import RxCocoa
 
 class SimpleWordView: UIView
 {
@@ -22,10 +24,20 @@ class SimpleWordView: UIView
     var audioAVPlayer: AVPlayer?
 
     var flag: Int = 0
-    
+    let disposeBag: DisposeBag = DisposeBag()
+    var findWord: PublishRelay<String> = PublishRelay()
+
     init()
     {
         super.init(frame: SCREEN_FRAME)
+        let simpleWordVM = SimpleWordViewModel(word: findWord)
+        simpleWordVM.simpleWord?.subscribe(onNext: { simpleWord in
+            print("simple word")
+            self.wordLabel.text = simpleWord.simpleWord
+            self.phoneticLabel.text = simpleWord.UKPhonetic
+            self.translateLabel.text = simpleWord.translation
+        }).disposed(by: disposeBag)
+
         initSubView()
     }
 
@@ -63,7 +75,7 @@ class SimpleWordView: UIView
         }
 
         // 添加word
-        wordLabel.text = "Congratulation"
+        //wordLabel.text = "Congratulation"
         wordLabel.textAlignment = .center
         wordLabel.textColor = UIColor.systemPink
         wordLabel.font = UIFont.boldSystemFont(ofSize: 30)
@@ -75,7 +87,7 @@ class SimpleWordView: UIView
 
 
         //  添加 phoneticLabel
-        phoneticLabel.text = "[kənˌɡrætʃuˈleɪʃn]"
+        //phoneticLabel.text = "[kənˌɡrætʃuˈleɪʃn]"
         phoneticLabel.textAlignment = .center
         phoneticLabel.textColor = UIColor.systemPurple
         phoneticLabel.font = UIFont.systemFont(ofSize: 15)
@@ -86,7 +98,7 @@ class SimpleWordView: UIView
         }
 
         // 添加 translate
-        translateLabel.text = "n. 祝贺;恭贺;贺词;(用以向人祝贺)祝贺，恭喜"
+        //translateLabel.text = "n. 祝贺;恭贺;贺词;(用以向人祝贺)祝贺，恭喜"
         translateLabel.textAlignment = .center
         translateLabel.textColor = UIColor.systemGray
         translateLabel.font = UIFont.systemFont(ofSize: 15)
@@ -113,6 +125,7 @@ extension SimpleWordView
 {
     func show()
     {
+        flag == 0 ? findWord.accept("congratulation") : findWord.accept("hello")
         let window = UIApplication.shared.delegate?.window as? UIWindow
         window?.addSubview(self)
         UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseOut, animations: {

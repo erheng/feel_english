@@ -12,7 +12,7 @@ import Moya
 extension TargetType
 {
     var baseURL: URL {
-        return URL(string: "https://www.91bda.com")!
+        return URL(string: "http://192.168.3.70:7182")!
     }
     
     // 请求类型
