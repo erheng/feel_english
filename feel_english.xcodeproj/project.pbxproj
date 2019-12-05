@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2D0B541CA9CE216B9BF98D0 /* MoyaProviderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0B14B2078E3B17A261DE7 /* MoyaProviderExtension.swift */; };
 		B2D0B76101ADA31767657AF3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0BF27D25E30A588FF3314 /* Constants.swift */; };
 		B2D0BB01FF98BD0B2FC0CE16 /* SubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0BA6AF77D5255C8CE817E /* SubtitleView.swift */; };
 		BF5517D0A45D49837FD18226 /* Pods_feel_english.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C1723B67B6E6FD9B97825F /* Pods_feel_english.framework */; };
 		DF955BEF23588F75B22A9615 /* Pods_feel_englishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4180765D8C08F6E43A3A5EE5 /* Pods_feel_englishUITests.framework */; };
 		E40B4231238774A700484F68 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B4230238774A700484F68 /* VideoPlayerView.swift */; };
+		E415F0FE239660890050AA52 /* BaseMoyaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E415F0FD239660890050AA52 /* BaseMoyaRequest.swift */; };
+		E415F100239668370050AA52 /* WordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E415F0FF239668370050AA52 /* WordRequest.swift */; };
 		E4451A41238781CB0072856D /* VideoCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A40238781CB0072856D /* VideoCacheManager.swift */; };
 		E4451A44238799EE0072856D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A43238799EE0072856D /* StringExtension.swift */; };
 		E4451A462387B0640072856D /* AVPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4451A452387B0640072856D /* AVPlayerManager.swift */; };
@@ -28,6 +31,8 @@
 		E4920F0D2386C17900D4F0C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4920F0C2386C17900D4F0C0 /* Assets.xcassets */; };
 		E4920F1B2386C17900D4F0C0 /* feel_englishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4920F1A2386C17900D4F0C0 /* feel_englishTests.swift */; };
 		E4920F262386C17900D4F0C0 /* feel_englishUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4920F252386C17900D4F0C0 /* feel_englishUITests.swift */; };
+		E4ADE89223976C3000A24257 /* ObservableTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ADE89123976C3000A24257 /* ObservableTypeExtension.swift */; };
+		E4ADE894239786E400A24257 /* MoyaResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ADE893239786E400A24257 /* MoyaResponseExtension.swift */; };
 		E4B09DD1238A23EF00CE08B2 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B09DD0238A23EF00CE08B2 /* FavoriteView.swift */; };
 		E4B09DD3238AB48D00CE08B2 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B09DD2238AB48D00CE08B2 /* ShareView.swift */; };
 		E4DF92012389872C0053C96F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF92002389872C0053C96F /* BaseViewController.swift */; };
@@ -56,6 +61,7 @@
 		4180765D8C08F6E43A3A5EE5 /* Pods_feel_englishUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_feel_englishUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		519771E60456796924EA34F8 /* Pods-feel_english.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_english.release.xcconfig"; path = "Target Support Files/Pods-feel_english/Pods-feel_english.release.xcconfig"; sourceTree = "<group>"; };
 		5B1E5DBB480003E826CBC0E1 /* Pods-feel_englishTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_englishTests.debug.xcconfig"; path = "Target Support Files/Pods-feel_englishTests/Pods-feel_englishTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B2D0B14B2078E3B17A261DE7 /* MoyaProviderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaProviderExtension.swift; sourceTree = "<group>"; };
 		B2D0BA6AF77D5255C8CE817E /* SubtitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleView.swift; sourceTree = "<group>"; };
 		B2D0BF27D25E30A588FF3314 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D300DC14C0AFB6B7DA050C2A /* Pods-feel_englishUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_englishUITests.debug.xcconfig"; path = "Target Support Files/Pods-feel_englishUITests/Pods-feel_englishUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +69,8 @@
 		DCFE6830B88E19AD38A9B587 /* Pods-feel_english.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_english.debug.xcconfig"; path = "Target Support Files/Pods-feel_english/Pods-feel_english.debug.xcconfig"; sourceTree = "<group>"; };
 		DD2DACDE63A441813311F391 /* Pods-feel_englishTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-feel_englishTests.release.xcconfig"; path = "Target Support Files/Pods-feel_englishTests/Pods-feel_englishTests.release.xcconfig"; sourceTree = "<group>"; };
 		E40B4230238774A700484F68 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		E415F0FD239660890050AA52 /* BaseMoyaRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMoyaRequest.swift; sourceTree = "<group>"; };
+		E415F0FF239668370050AA52 /* WordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordRequest.swift; sourceTree = "<group>"; };
 		E4451A40238781CB0072856D /* VideoCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCacheManager.swift; sourceTree = "<group>"; };
 		E4451A43238799EE0072856D /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		E4451A452387B0640072856D /* AVPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerManager.swift; sourceTree = "<group>"; };
@@ -85,6 +93,8 @@
 		E4920F212386C17900D4F0C0 /* feel_englishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = feel_englishUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4920F252386C17900D4F0C0 /* feel_englishUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feel_englishUITests.swift; sourceTree = "<group>"; };
 		E4920F272386C17900D4F0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4ADE89123976C3000A24257 /* ObservableTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTypeExtension.swift; sourceTree = "<group>"; };
+		E4ADE893239786E400A24257 /* MoyaResponseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaResponseExtension.swift; sourceTree = "<group>"; };
 		E4B09DD0238A23EF00CE08B2 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		E4B09DD2238AB48D00CE08B2 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		E4DF92002389872C0053C96F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +149,18 @@
 			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
+		E415F0FC239660330050AA52 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E415F0FD239660890050AA52 /* BaseMoyaRequest.swift */,
+				E415F0FF239668370050AA52 /* WordRequest.swift */,
+				E4ADE89123976C3000A24257 /* ObservableTypeExtension.swift */,
+				E4ADE893239786E400A24257 /* MoyaResponseExtension.swift */,
+				B2D0B14B2078E3B17A261DE7 /* MoyaProviderExtension.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		E4451A42238799CA0072856D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +207,7 @@
 		E47ACD332386C62C006A3D36 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E415F0FC239660330050AA52 /* Network */,
 				E47ACD382386C745006A3D36 /* Base */,
 				E40B422F2387748100484F68 /* VideoPlayer */,
 			);
@@ -507,9 +530,12 @@
 				E4451A4D2387DFDC0072856D /* MovieClipModel.swift in Sources */,
 				E47ACD402386C851006A3D36 /* LearnPleanViewController.swift in Sources */,
 				E47ACD3A2386C745006A3D36 /* BaseTabBarController.swift in Sources */,
+				E415F100239668370050AA52 /* WordRequest.swift in Sources */,
+				E4ADE89223976C3000A24257 /* ObservableTypeExtension.swift in Sources */,
 				E4DF92012389872C0053C96F /* BaseViewController.swift in Sources */,
 				E4920F042386C17700D4F0C0 /* AppDelegate.swift in Sources */,
 				E4451A4B2387C3600072856D /* VideoListCell.swift in Sources */,
+				E4ADE894239786E400A24257 /* MoyaResponseExtension.swift in Sources */,
 				E4B09DD3238AB48D00CE08B2 /* ShareView.swift in Sources */,
 				E4451A44238799EE0072856D /* StringExtension.swift in Sources */,
 				E47ACD3C2386C75C006A3D36 /* BaseNavigationController.swift in Sources */,
@@ -520,6 +546,8 @@
 				E4451A492387C2CE0072856D /* VideoListViewController.swift in Sources */,
 				B2D0B76101ADA31767657AF3 /* Constants.swift in Sources */,
 				B2D0BB01FF98BD0B2FC0CE16 /* SubtitleView.swift in Sources */,
+				E415F0FE239660890050AA52 /* BaseMoyaRequest.swift in Sources */,
+				B2D0B541CA9CE216B9BF98D0 /* MoyaProviderExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
