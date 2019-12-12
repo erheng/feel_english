@@ -31,25 +31,3 @@ struct SimpleWordModel: Mappable
         translation <- map["translation"]
     }
 }
-
-
-
-struct result<T: Mappable>: Mappable
-{
-    var message: String?
-    var code: Int?
-    var data: T?
-
-    init?(map: Map)
-    {
-    }
-
-    mutating func mapping(map: Map)
-    {
-        message <- map["message"]
-        code <- map["code"]
-        data <- map["data"]
-    }
-
-
-}
