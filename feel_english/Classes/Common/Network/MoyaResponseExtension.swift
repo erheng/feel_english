@@ -16,10 +16,29 @@ public extension Response
     // 这一个主要是将JSON解析为单个的Model
     func mapObject<T: BaseMappable>(_ type: T.Type, context: MapContext? = nil) throws -> T
     {
-        guard let object = Mapper<T>(context: context).map(JSONObject: try mapJSON()) else {
-          throw MoyaError.jsonMapping(self)
+        if self.statusCode < 400
+        {
+            guard let object = Mapper<T>(context: context).map(JSONObject: try mapJSON()) else {
+               throw MoyaError.jsonMapping(self)
+             }
+            return object
         }
-       return object
+        
+        do
+        {
+            let serviceError = Mapper<ServiceError>().map(JSONObject: try mapJSON())
+            throw serviceError!
+        }
+        catch
+        {
+            if error is ServiceError
+            {
+                throw error
+            }
+            let serviceError = ServiceError(code: -1, message: "服务器开小差，请稍后重试")
+            throw serviceError
+        }
+        
     }
 
     // 这个主要是将JSON解析成多个Model并返回一个数组

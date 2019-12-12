@@ -32,6 +32,10 @@ class SimpleWordViewModel
                 })
                 .asObservable()
                 .catchError({ error in
+                    print("解析报错")
+                    print(error.localizedDescription)
+                    let ee = error as! ServiceError
+                    print(ee.localizedDescription)
                     return Observable<SimpleWordModel>.empty()
                 })
     }
