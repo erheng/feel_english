@@ -24,7 +24,6 @@ class VideoListViewController: BaseViewController
     var uid: String?
     private var selfObserverKeyPath: String = "currentIndex"
     
-    
     init(movieClips: [MovieClipModel], currentIndex: Int, page: Int, size: Int, uid: String)
     {
         super.init(nibName: nil, bundle: nil)

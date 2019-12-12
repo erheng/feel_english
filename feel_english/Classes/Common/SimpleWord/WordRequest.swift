@@ -21,8 +21,8 @@ extension WordRequest: TargetType
     var path: String {
         switch self
         {
-            case .simpleWord(_):
-                return "/wutong/hot/news"
+            case .simpleWord(let words):
+                return "/simple/word/" + words
             case .wordInfo:
                 return "/word/info"
         }
