@@ -31,5 +31,8 @@ class SimpleWordViewModel
                     result.data!
                 })
                 .asObservable()
+                .catchError({ error in
+                    return Observable<SimpleWordModel>.empty()
+                })
     }
 }

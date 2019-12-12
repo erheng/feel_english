@@ -11,6 +11,7 @@ import UIKit
 import AVFoundation
 import SnapKit
 import BSText
+import RxSwift
 
 typealias OnPlayerReady = () -> Void
 
@@ -50,6 +51,8 @@ class VideoListCell: UITableViewCell
     // write
     
     // speed
+
+    var disposeBag: DisposeBag = DisposeBag()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?)
     {
@@ -59,6 +62,11 @@ class VideoListCell: UITableViewCell
         self.lastTapTime = 0
         self.lastTapPoint = .zero
         self.initSubViews()
+
+        // 监听点击subtitle显示simple word view, pause video
+        self.subtitleView.isShow.subscribe(){ isShow in
+            self.playerView.updatePlayerState()
+        }.disposed(by: self.disposeBag)
     }
     
     required init?(coder: NSCoder)
@@ -266,18 +274,18 @@ extension VideoListCell
             playerStatusBar.isHidden = false
             playerStatusBar.layer.removeAllAnimations()
             
-            let animationGroup = CAAnimationGroup.init()
+            let animationGroup = CAAnimationGroup()
             animationGroup.duration = 0.5
             animationGroup.beginTime = CACurrentMediaTime()
             animationGroup.repeatCount = .infinity
             animationGroup.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.easeInEaseOut)
             
-            let scaleAnim = CABasicAnimation.init()
+            let scaleAnim = CABasicAnimation()
             scaleAnim.keyPath = "transform.scale.x"
             scaleAnim.fromValue = 1.0
             scaleAnim.toValue = 1.0 * UIScreen.main.bounds.width
             
-            let alphaAnim = CABasicAnimation.init()
+            let alphaAnim = CABasicAnimation()
             alphaAnim.keyPath = "opacity"
             alphaAnim.fromValue = 1.0
             alphaAnim.toValue = 0.2

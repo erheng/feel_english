@@ -11,6 +11,7 @@ import SnapKit
 import AVFoundation
 import RxSwift
 import RxCocoa
+import RxRelay
 
 class SimpleWordView: UIView
 {
@@ -26,6 +27,7 @@ class SimpleWordView: UIView
     var flag: Int = 0
     let disposeBag: DisposeBag = DisposeBag()
     var findWord: PublishRelay<String> = PublishRelay()
+    var isShow: PublishRelay<Bool> = PublishRelay()
 
     init()
     {
@@ -51,9 +53,12 @@ class SimpleWordView: UIView
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func initSubView()
     {
-        self.backgroundColor = UIColor.systemPink
+        // 设置背景透明
+        self.backgroundColor = UIColor(white: 0.1, alpha: 0.6)
+        
         container.frame = CGRect(x: 0, y: SCREEN_HEIGHT , width: SCREEN_WIDTH, height: SCREEN_HEIGHT * ( 3 / 8))
         //container.frame = CGRect(x: 0, y: SCREEN_HEIGHT * (2 / 4) , width: SCREEN_WIDTH, height: SCREEN_HEIGHT * ( 1 / 4))
         container.backgroundColor = UIColor.white
@@ -87,7 +92,6 @@ class SimpleWordView: UIView
 
 
         //  添加 phoneticLabel
-        //phoneticLabel.text = "[kənˌɡrætʃuˈleɪʃn]"
         phoneticLabel.textAlignment = .center
         phoneticLabel.textColor = UIColor.systemPurple
         phoneticLabel.font = UIFont.systemFont(ofSize: 15)
@@ -98,7 +102,6 @@ class SimpleWordView: UIView
         }
 
         // 添加 translate
-        //translateLabel.text = "n. 祝贺;恭贺;贺词;(用以向人祝贺)祝贺，恭喜"
         translateLabel.textAlignment = .center
         translateLabel.textColor = UIColor.systemGray
         translateLabel.font = UIFont.systemFont(ofSize: 15)
@@ -123,9 +126,10 @@ class SimpleWordView: UIView
 
 extension SimpleWordView
 {
-    func show()
+    func show(of word: String)
     {
-        flag == 0 ? findWord.accept("congratulation") : findWord.accept("hello")
+        self.isShow.accept(true)
+        findWord.accept(word)
         let window = UIApplication.shared.delegate?.window as? UIWindow
         window?.addSubview(self)
         UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseOut, animations: {
@@ -145,6 +149,7 @@ extension SimpleWordView
         }) { finished in
             self.removeFromSuperview()
         }
+        self.isShow.accept(false)
     }
 }
 

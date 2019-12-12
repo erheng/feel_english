@@ -6,17 +6,26 @@
 import Foundation
 import UIKit
 import BSText
+import RxSwift
+import RxRelay
 
 class SubtitleView: UIView
 {
     // 设置subtitle
     let bsLabel = BSLabel()
+    let simpleWordView: SimpleWordView = SimpleWordView()
+    var isShow: PublishRelay<Bool> = PublishRelay()
+    var disposeBag: DisposeBag = DisposeBag()
 
     init()
     {
         //super.init(frame: CGRect(origin: .zero, size: CGSize(width: 305, height: 200)))
         super.init(frame: CGRect(x: 10, y: 350, width: 305, height: 200))
         self.initSubView()
+
+        self.simpleWordView.isShow.subscribe(onNext: { show in
+            self.isShow.accept(show)
+        }).disposed(by: self.disposeBag)
     }
 
     required init?(coder: NSCoder)
@@ -30,7 +39,6 @@ class SubtitleView: UIView
         bsLabel.textAlignment = .center
         bsLabel.textColor = .white
         bsLabel.numberOfLines = 0
-        //changeSubtitleText(for: "")
         self.addSubview(bsLabel)
     }
 
@@ -42,7 +50,7 @@ class SubtitleView: UIView
             bsLabel.attributedText = NSMutableAttributedString(string: subtitle)
             return
         }
-        //let subtitle = "I-I don't want anything. come on, let your godmother spoil you a little bit."
+
         let sub: [Substring] = subtitle.split(separator: " ")
         var newSubtitle: String = ""
         var position: Int = 0
@@ -59,27 +67,17 @@ class SubtitleView: UIView
         let text = NSMutableAttributedString(string: subtitle)
         text.bs_font = UIFont.systemFont(ofSize: 28)
 
-        let color:[UIColor] = [UIColor.red, UIColor.yellow, UIColor.blue]
-        for (index, range) in rangeWord.keys.enumerated()
+        for range in rangeWord.keys
         {
-            var ids = 1
-            if index  < color.count
-            {
-                ids = index
-            }
-            else
-            {
-                ids = index % 3
-            }
             // 设置每个word的点击事件
-            text.bs_set(textHighlightRange: NSRange(range)!, color: color[ids], backgroundColor: nil)
+            text.bs_set(textHighlightRange: NSRange(range)!, color: UIColor.white , backgroundColor: nil)
             { (view, text, range, rect ) in
                 print(text?.string as Any)
                 print(range)
                 print(rangeWord[range.description]!)
+                self.simpleWordView.show(of: rangeWord[range.description]!)
             }
         }
-
         bsLabel.attributedText = text
     }
 }
