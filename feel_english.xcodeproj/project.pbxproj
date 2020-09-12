@@ -182,6 +182,30 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		E41A0656250C676F00E918C0 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				E41A0657250C676F00E918C0 /* functional */,
+				E41A0658250C676F00E918C0 /* basis */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		E41A0657250C676F00E918C0 /* functional */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = functional;
+			sourceTree = "<group>";
+		};
+		E41A0658250C676F00E918C0 /* basis */ = {
+			isa = PBXGroup;
+			children = (
+				E415F0FC239660330050AA52 /* Network */,
+			);
+			path = basis;
+			sourceTree = "<group>";
+		};
 		E4451A42238799CA0072856D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +232,7 @@
 		E47ACD312386C62C006A3D36 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E41A0656250C676F00E918C0 /* component */,
 				E47ACD332386C62C006A3D36 /* Common */,
 				E47ACD322386C62C006A3D36 /* Home */,
 				E47ACD342386C62C006A3D36 /* LearnPlan */,
@@ -229,7 +254,6 @@
 		E47ACD332386C62C006A3D36 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E415F0FC239660330050AA52 /* Network */,
 				E47ACD382386C745006A3D36 /* Base */,
 				E40B422F2387748100484F68 /* VideoPlayer */,
 				B2D0B8D2B7556B894CF34DA5 /* SimpleWord */,
