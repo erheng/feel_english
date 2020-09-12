@@ -20,6 +20,7 @@ class SimpleWordView: UIView
     let wordLabel: UILabel = UILabel()
     let phoneticLabel: UILabel = UILabel()
     let translateLabel: UILabel = UILabel()
+    let loadAnimation: UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
 
     var sourceUrl: URL?
     var audioAVPlayer: AVPlayer?
@@ -38,6 +39,7 @@ class SimpleWordView: UIView
             self.wordLabel.text = simpleWord.simpleWord
             self.phoneticLabel.text = simpleWord.UKPhonetic
             self.translateLabel.text = simpleWord.translation
+            self.loadAnimation.stopAnimating()
         }).disposed(by: disposeBag)
 
         initSubView()
@@ -62,6 +64,8 @@ class SimpleWordView: UIView
         container.frame = CGRect(x: 0, y: SCREEN_HEIGHT , width: SCREEN_WIDTH, height: SCREEN_HEIGHT * ( 3 / 8))
         //container.frame = CGRect(x: 0, y: SCREEN_HEIGHT * (2 / 4) , width: SCREEN_WIDTH, height: SCREEN_HEIGHT * ( 1 / 4))
         container.backgroundColor = UIColor.white
+        self.loadAnimation.frame = container.bounds
+        container.addSubview(self.loadAnimation)
         self.addSubview(container)
 
         // 设置圆角
@@ -128,6 +132,7 @@ extension SimpleWordView
 {
     func show(of word: String)
     {
+        self.loadAnimation.startAnimating()
         self.isShow.accept(true)
         findWord.accept(word)
         let window = UIApplication.shared.delegate?.window as? UIWindow
@@ -150,6 +155,11 @@ extension SimpleWordView
             self.removeFromSuperview()
         }
         self.isShow.accept(false)
+        
+        // 清空数据
+        self.wordLabel.text = ""
+        self.phoneticLabel.text = ""
+        self.translateLabel.text = ""
     }
 }
 

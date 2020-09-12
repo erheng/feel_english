@@ -35,6 +35,7 @@
 		E4920F0D2386C17900D4F0C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4920F0C2386C17900D4F0C0 /* Assets.xcassets */; };
 		E4920F1B2386C17900D4F0C0 /* feel_englishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4920F1A2386C17900D4F0C0 /* feel_englishTests.swift */; };
 		E4920F262386C17900D4F0C0 /* feel_englishUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4920F252386C17900D4F0C0 /* feel_englishUITests.swift */; };
+		E499494D23A22D97006BD0E3 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E499494C23A22D97006BD0E3 /* NetworkResult.swift */; };
 		E4ADE89223976C3000A24257 /* ObservableTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ADE89123976C3000A24257 /* ObservableTypeExtension.swift */; };
 		E4ADE894239786E400A24257 /* MoyaResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4ADE893239786E400A24257 /* MoyaResponseExtension.swift */; };
 		E4B09DD1238A23EF00CE08B2 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B09DD0238A23EF00CE08B2 /* FavoriteView.swift */; };
@@ -101,6 +102,7 @@
 		E4920F212386C17900D4F0C0 /* feel_englishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = feel_englishUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4920F252386C17900D4F0C0 /* feel_englishUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feel_englishUITests.swift; sourceTree = "<group>"; };
 		E4920F272386C17900D4F0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E499494C23A22D97006BD0E3 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		E4ADE89123976C3000A24257 /* ObservableTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTypeExtension.swift; sourceTree = "<group>"; };
 		E4ADE893239786E400A24257 /* MoyaResponseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaResponseExtension.swift; sourceTree = "<group>"; };
 		E4B09DD0238A23EF00CE08B2 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
@@ -175,8 +177,33 @@
 				E4ADE89123976C3000A24257 /* ObservableTypeExtension.swift */,
 				E4ADE893239786E400A24257 /* MoyaResponseExtension.swift */,
 				B2D0B14B2078E3B17A261DE7 /* MoyaProviderExtension.swift */,
+				E499494C23A22D97006BD0E3 /* NetworkResult.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E41A0656250C676F00E918C0 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				E41A0657250C676F00E918C0 /* functional */,
+				E41A0658250C676F00E918C0 /* basis */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		E41A0657250C676F00E918C0 /* functional */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = functional;
+			sourceTree = "<group>";
+		};
+		E41A0658250C676F00E918C0 /* basis */ = {
+			isa = PBXGroup;
+			children = (
+				E415F0FC239660330050AA52 /* Network */,
+			);
+			path = basis;
 			sourceTree = "<group>";
 		};
 		E4451A42238799CA0072856D /* Utils */ = {
@@ -205,6 +232,7 @@
 		E47ACD312386C62C006A3D36 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E41A0656250C676F00E918C0 /* component */,
 				E47ACD332386C62C006A3D36 /* Common */,
 				E47ACD322386C62C006A3D36 /* Home */,
 				E47ACD342386C62C006A3D36 /* LearnPlan */,
@@ -226,7 +254,6 @@
 		E47ACD332386C62C006A3D36 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E415F0FC239660330050AA52 /* Network */,
 				E47ACD382386C745006A3D36 /* Base */,
 				E40B422F2387748100484F68 /* VideoPlayer */,
 				B2D0B8D2B7556B894CF34DA5 /* SimpleWord */,
@@ -572,6 +599,7 @@
 				B2D0B1A5D52146BA51C368A7 /* SimpleWordView.swift in Sources */,
 				B2D0B1417172507027A1AD4F /* SimpleWordViewModel.swift in Sources */,
 				B2D0B7DFE8A6CF84987476B3 /* WordRequest.swift in Sources */,
+				E499494D23A22D97006BD0E3 /* NetworkResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

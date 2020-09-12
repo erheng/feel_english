@@ -8,14 +8,18 @@
 
 import UIKit
 
+
 class LearnPleanViewController: UIViewController
 {
+    let array = ["crs","grs","nrs"]
+    let callName = "callNativeMethond"
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.addSubview(button)
     }
     
 
@@ -28,5 +32,14 @@ class LearnPleanViewController: UIViewController
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    lazy var button : UIButton = {
+            let object = UIButton()
+            object.backgroundColor = UIColor.red
+            object.center = CGPoint.init(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2)
+            object.bounds = CGRect.init(x: 0, y: 0, width: 200, height: 200)
+        
+            return object
+        }()
 }
