@@ -14,7 +14,7 @@ target 'feel_english' do
   pod 'RxCocoa', '~> 5.1.1'
   pod 'RxSwift', '~> 5.1.1'
   pod 'BSText', '~> 1.1.0'
-  # pod 'feel_flutter_lib', :path => '../../Flutter/feel_flutter_library/feel_flutter_lib'
+  # pod 'feel_flutter_lib', :path => '../../Flutter/feel_flutter_lib'
   # pod 'FeelFlutterLib',  :git => 'https://github.com/erheng/feel_flutter_lib.git', :tag => '0.0.1'
 
 
